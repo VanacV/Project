@@ -1,13 +1,15 @@
-﻿namespace Project.Storage.Entity
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Project.Storage.Entity
 {
     public class Shop
     {
-        public int Id{ set; get; }
-        public string Name { set; get; }
-        public string Address { set; get; }
-        public int? PhoneNumber { set; get; }
-        public string? Email { set; get; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public int? PhoneNumber { get; set; }
+        public string Email { get; set; }
 
-        public ICollection<Product> Products { set; get; }
+        public List<Product> Products { get; set; }
     }
 }

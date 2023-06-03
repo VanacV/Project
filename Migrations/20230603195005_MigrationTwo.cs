@@ -4,7 +4,7 @@
 
 namespace Project.Migrations
 {
-    public partial class Migration_DataBase_One : Migration
+    public partial class MigrationTwo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

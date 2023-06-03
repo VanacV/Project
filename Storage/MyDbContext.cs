@@ -9,7 +9,6 @@ namespace Project.Storage
         public DbSet<Product> Items { get; set; }  
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Users> Users { get; set; }
-        public DbSet<Basket> Baskets { get; set; }
         public DbSet<Flower> Flowers { get; set; }
         public DbSet<SoftToy> SoftToys { get; set; }
 

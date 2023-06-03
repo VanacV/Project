@@ -1,4 +1,6 @@
-﻿namespace Project.Storage.Entity
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Project.Storage.Entity
 {
     public class Users
     {
@@ -7,9 +9,7 @@
         public string Email { get; set; }
         public string Password { get; set; }
         public string login { get; set; }
-        public ICollection<Review> Reviews { get; set; }
-        public Basket Basket { get; set; }
-        public Shop Shop { get; set; }  
-        public int BasketId { get; set; }
+
+        public List<Review> Reviews { get; set; }
     }
 }

@@ -12,8 +12,8 @@ using Project.Storage;
 namespace Project.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230603143949_Miga_V")]
-    partial class Miga_V
+    [Migration("20230603195005_MigrationTwo")]
+    partial class MigrationTwo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,75 +23,6 @@ namespace Project.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("BasketFlower", b =>
-                {
-                    b.Property<int>("BasketsBasketId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FlowersFlowerId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BasketsBasketId", "FlowersFlowerId");
-
-                    b.HasIndex("FlowersFlowerId");
-
-                    b.ToTable("BasketFlower");
-                });
-
-            modelBuilder.Entity("BasketProduct", b =>
-                {
-                    b.Property<int>("BasketsBasketId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductsProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BasketsBasketId", "ProductsProductId");
-
-                    b.HasIndex("ProductsProductId");
-
-                    b.ToTable("BasketProduct");
-                });
-
-            modelBuilder.Entity("BasketSoftToy", b =>
-                {
-                    b.Property<int>("BasketsBasketId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("softToysSoftToyId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BasketsBasketId", "softToysSoftToyId");
-
-                    b.HasIndex("softToysSoftToyId");
-
-                    b.ToTable("BasketSoftToy");
-                });
-
-            modelBuilder.Entity("Project.Storage.Entity.Basket", b =>
-                {
-                    b.Property<int>("BasketId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BasketId"), 1L, 1);
-
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsersId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BasketId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("Baskets");
-                });
 
             modelBuilder.Entity("Project.Storage.Entity.Flower", b =>
                 {
@@ -109,21 +40,23 @@ namespace Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.HasKey("FlowerId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Flowers");
                 });
 
             modelBuilder.Entity("Project.Storage.Entity.Product", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ProductName")
                         .IsRequired()
@@ -132,7 +65,7 @@ namespace Project.Migrations
                     b.Property<int>("ShopId")
                         .HasColumnType("int");
 
-                    b.HasKey("ProductId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ShopId");
 
@@ -178,6 +111,7 @@ namespace Project.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -200,11 +134,16 @@ namespace Project.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SoftToyId"), 1L, 1);
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<string>("SoftToyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SoftToyId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("SoftToys");
                 });
@@ -238,60 +177,15 @@ namespace Project.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("BasketFlower", b =>
+            modelBuilder.Entity("Project.Storage.Entity.Flower", b =>
                 {
-                    b.HasOne("Project.Storage.Entity.Basket", null)
-                        .WithMany()
-                        .HasForeignKey("BasketsBasketId")
+                    b.HasOne("Project.Storage.Entity.Product", "Product")
+                        .WithMany("Flowers")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Project.Storage.Entity.Flower", null)
-                        .WithMany()
-                        .HasForeignKey("FlowersFlowerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BasketProduct", b =>
-                {
-                    b.HasOne("Project.Storage.Entity.Basket", null)
-                        .WithMany()
-                        .HasForeignKey("BasketsBasketId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Project.Storage.Entity.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BasketSoftToy", b =>
-                {
-                    b.HasOne("Project.Storage.Entity.Basket", null)
-                        .WithMany()
-                        .HasForeignKey("BasketsBasketId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Project.Storage.Entity.SoftToy", null)
-                        .WithMany()
-                        .HasForeignKey("softToysSoftToyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Project.Storage.Entity.Basket", b =>
-                {
-                    b.HasOne("Project.Storage.Entity.Users", "Users")
-                        .WithMany("Baskets")
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Users");
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Project.Storage.Entity.Product", b =>
@@ -316,6 +210,24 @@ namespace Project.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Project.Storage.Entity.SoftToy", b =>
+                {
+                    b.HasOne("Project.Storage.Entity.Product", "Product")
+                        .WithMany("SoftToys")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Project.Storage.Entity.Product", b =>
+                {
+                    b.Navigation("Flowers");
+
+                    b.Navigation("SoftToys");
+                });
+
             modelBuilder.Entity("Project.Storage.Entity.Shop", b =>
                 {
                     b.Navigation("Products");
@@ -323,8 +235,6 @@ namespace Project.Migrations
 
             modelBuilder.Entity("Project.Storage.Entity.Users", b =>
                 {
-                    b.Navigation("Baskets");
-
                     b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
