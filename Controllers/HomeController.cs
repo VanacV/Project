@@ -1,6 +1,10 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Project.Models;
+using Project.Models.Interface;
+using Project.Storage;
+using Project.Storage.Entity;
 
 namespace Project.Controllers
 {
@@ -12,10 +16,18 @@ namespace Project.Controllers
         {
             _logger = logger;
         }
-
+       
         public IActionResult Index()
         {
-            return View();
+            var db = new MyDbContext();
+            var shop = db.Shops.ToList();
+            var product = db.Items.ToList();
+            var review = db.Reviews.ToList();
+            var users = db.Users.ToList();
+            var flower = db.Flowers.ToList();
+            var softToy = db.SoftToys.ToList();
+            var model = new ViewModel {Shop = shop, Items = product, Reviews = review,Users = users,IFlowers =flower, SoftToy= softToy};
+            return View(model);
         }
 
         public IActionResult Privacy()

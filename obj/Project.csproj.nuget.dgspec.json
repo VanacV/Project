@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ivan\\Desktop\\4 Семестр\\ООП ПРОЕКТ\\Project\\Project\\Project.csproj": {}
+    "D:\\C\\ProjectOOP\\Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ivan\\Desktop\\4 Семестр\\ООП ПРОЕКТ\\Project\\Project\\Project.csproj": {
+    "D:\\C\\ProjectOOP\\Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ivan\\Desktop\\4 Семестр\\ООП ПРОЕКТ\\Project\\Project\\Project.csproj",
+        "projectUniqueName": "D:\\C\\ProjectOOP\\Project.csproj",
         "projectName": "Project",
-        "projectPath": "C:\\Users\\Ivan\\Desktop\\4 Семестр\\ООП ПРОЕКТ\\Project\\Project\\Project.csproj",
-        "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ivan\\Desktop\\4 Семестр\\ООП ПРОЕКТ\\Project\\Project\\obj\\",
+        "projectPath": "D:\\C\\ProjectOOP\\Project.csproj",
+        "packagesPath": "C:\\Users\\densh\\.nuget\\packages\\",
+        "outputPath": "D:\\C\\ProjectOOP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\densh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -66,24 +66,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -92,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
