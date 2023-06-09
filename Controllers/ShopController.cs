@@ -1,12 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Project.Models.Interface;
+using Project.Storage.Entity;
 
 namespace Project.Controllers
 {
     public class ShopController : Controller
     {
-        public IActionResult Index()
+       
+        private readonly IShop _shopModel;
+
+        public ShopController(IShop shopModel)
         {
-            return View();
+            _shopModel = shopModel;
+        }
+
+        [HttpGet]
+        [Route("shop")]
+        public async Task<IActionResult> OutputShop()
+        {
+            IList<Shop> shops = await _shopModel.OutputShop();
+            return Ok(shops);
         }
     }
+
+
 }
+

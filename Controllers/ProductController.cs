@@ -8,5 +8,11 @@ namespace Project.Controllers
         {
             return View();
         }
+        [HttpGet]
+        [Route("/api/Product")]
+        public async Task<ActionResult> GetAll()
+        {
+            return Ok("Ok");
+        }
     }
 }

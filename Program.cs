@@ -1,3 +1,6 @@
+using Project.Models.Interface;
+using Project.Models.Realization;
+using Project.Storage;
 using Project.Storage.Entity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,8 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
 var connectionString = builder.Configuration.GetConnectionString("MyDbContext");
+builder.Services.AddTransient<IAuthorization, AuthorizationModel>();
+builder.Services.AddTransient<IShop, ShopModel>();
+builder.Services.AddTransient<IUser, UserModel>();
+builder.Services.AddDbContext<MyDbContext>();
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -20,6 +28,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
 
 app.UseAuthorization();
 
