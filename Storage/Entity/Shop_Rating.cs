@@ -1,17 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace Project.Storage.Entity
+﻿namespace Project.Storage.Entity
 {
     public class Shop_Rating
     {
-        [Key]
-        public int Shop_Rat_Id { get; set; }
-        public float Rate { get; set; }
-        public string Comment { get; set; }
-
-        [ForeignKey("Shop")]
-        public int ShopId { get; set; }
+        public int Id { get; set; }
+        public int Rate { get; set; }
+        public string comment { get; set; }
+        public int Shop_Id { get; set; }
         public Shop Shop { get; set; }
     }
 }

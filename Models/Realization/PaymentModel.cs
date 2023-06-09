@@ -1,6 +1,6 @@
-﻿namespace Project.Models.Realization
-{
-    public class PaymentModel
-    {
-    }
-}
+﻿//namespace Project.Models.Realization
+//{
+//    public class PaymentModel
+//    {
+//    }
+//}

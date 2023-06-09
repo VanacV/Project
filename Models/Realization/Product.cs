@@ -1,10 +1,10 @@
-﻿using Project.Storage;
+﻿//using Project.Storage;
 
-namespace Project.Models.Realization
-{
-    public class Product
-    {
+//namespace Project.Models.Realization
+//{
+//    public class Product
+//    {
       
-    }
+//    }
 
-}
+//}

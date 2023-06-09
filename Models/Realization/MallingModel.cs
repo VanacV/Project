@@ -1,6 +1,6 @@
-﻿namespace Project.Models.Realization
-{
-    public class MallingModel
-    {
-    }
-}
+﻿//namespace Project.Models.Realization
+//{
+//    public class MallingModel
+//    {
+//    }
+//}
