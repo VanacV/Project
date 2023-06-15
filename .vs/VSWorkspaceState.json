@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Controllers",
+    "\\Models",
+    "\\Models\\Interface",
+    "\\Models\\Realization",
+    "\\Storage",
+    "\\Storage\\Entity"
+  ],
+  "PreviewInSolutionExplorer": false
+}

@@ -1,15 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Project.Storage.Entity
+﻿namespace Project.Storage.Entity
 {
     public class Users
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string login { get; set; }
-
-        public List<Review> Reviews { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string email { get; set; }
+        public string address { get; set; }
+        public int Auth_id { get; set; }
+        public Auth Auth { get; set; }
+        public Payment Payment { get; set; }
+        public Users_With_Mailing Malling { get; set; }
     }
 }

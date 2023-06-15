@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ivan\\Desktop\\4 Семестр\\ООП ПРОЕКТ\\Project\\Project\\Project.csproj": {}
+    "C:\\Users\\Ivan\\Desktop\\Oleg\\Project\\Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ivan\\Desktop\\4 Семестр\\ООП ПРОЕКТ\\Project\\Project\\Project.csproj": {
+    "C:\\Users\\Ivan\\Desktop\\Oleg\\Project\\Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ivan\\Desktop\\4 Семестр\\ООП ПРОЕКТ\\Project\\Project\\Project.csproj",
+        "projectUniqueName": "C:\\Users\\Ivan\\Desktop\\Oleg\\Project\\Project.csproj",
         "projectName": "Project",
-        "projectPath": "C:\\Users\\Ivan\\Desktop\\4 Семестр\\ООП ПРОЕКТ\\Project\\Project\\Project.csproj",
+        "projectPath": "C:\\Users\\Ivan\\Desktop\\Oleg\\Project\\Project.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ivan\\Desktop\\4 Семестр\\ООП ПРОЕКТ\\Project\\Project\\obj\\",
+        "outputPath": "C:\\Users\\Ivan\\Desktop\\Oleg\\Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,6 +53,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.15, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             }
           },
           "imports": [
